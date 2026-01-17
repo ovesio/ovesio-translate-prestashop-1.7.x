@@ -83,7 +83,7 @@ From the AI Description Generator section:
 
 ### Step 1: Upload and Install the Module
 
-1.  **Download:** Download the zip archive called `ovesio.zip` from the [GitHub repository](https://github.com/ovesio/ovesio-translate-prestashop-8.x/releases) releases section.
+1.  **Download:** Download the zip archive called `ovesio.zip` from the [GitHub repository](https://github.com/ovesio/ovesio-translate-prestashop-1.7.x/releases) releases section.
 2.  **Upload:**
     *   Log in to your PrestaShop Admin Panel (Back Office).
     *   Navigate to **Improve** > **Modules** > **Module Manager**.
@@ -145,7 +145,7 @@ From the AI Description Generator section:
 
 ### Module Structure
 
-The module follows PrestaShop 8.x best practices:
+The module follows PrestaShop 1.7.x best practices:
 
 - **Controllers**: Symfony-based admin controllers in `src/Controller/Admin/`
 - **Models**: Database operations in `model/`
