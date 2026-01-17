@@ -1,5 +1,6 @@
 <?php
 
+use Ovesio\QueueHandler;
 use PrestaShop\Module\Ovesio\Support\OvesioConfiguration;
 
 class OvesioCronjobModuleFrontController extends ModuleFrontController
@@ -29,7 +30,7 @@ class OvesioCronjobModuleFrontController extends ModuleFrontController
 
         // Verify hash
         if (empty($hash) || $hash !== $stored_hash) {
-            return $this->setOutput(['error' => 'Invalid hash']);
+            $this->setOutput(['error' => 'Invalid hash']);
         }
 
         $this->index();
@@ -38,7 +39,7 @@ class OvesioCronjobModuleFrontController extends ModuleFrontController
     private function index()
     {
         if (!$this->config->get($this->module_key . '_status')) {
-            return $this->setOutput(['error' => 'Module is disabled']);
+            $this->setOutput(['error' => 'Module is disabled']);
         }
 
         $query = Tools::getAllValues();
@@ -53,7 +54,7 @@ class OvesioCronjobModuleFrontController extends ModuleFrontController
         $status += (bool) $this->config->get($this->module_key . '_translate_status');
 
         if ($status == 0) {
-            return $this->setOutput(['error' => 'All operations are disabled']);
+            $this->setOutput(['error' => 'All operations are disabled']);
         }
 
         $this->ovesio = \Module::getInstanceByName('ovesio');
@@ -83,10 +84,10 @@ class OvesioCronjobModuleFrontController extends ModuleFrontController
     {
         if (is_array($response)) {
             $response = json_encode($response);
-
             header('Content-Type: application/json');
         }
 
-        return json_encode($response);
+        echo $response;
+        exit();
     }
 }

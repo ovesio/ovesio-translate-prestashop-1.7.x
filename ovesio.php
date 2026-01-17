@@ -10,8 +10,6 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 
 use Ovesio\OvesioAI;
 use Ovesio\QueueHandler;
-use PrestaShop\Module\Ovesio\Controller\Admin\ConfigureController;
-use PrestaShop\Module\Ovesio\Controller\Admin\ManualController;
 use PrestaShop\Module\Ovesio\Support\OvesioConfiguration;
 use PrestaShop\Module\Ovesio\Support\OvesioLog;
 
@@ -46,7 +44,7 @@ class Ovesio extends Module
         $this->tabs = [
             [
                 'route_name' => 'admin_ovesio_configure',
-                'class_name' => ConfigureController::TAB_CLASS_NAME,
+                'class_name' => 'AdminOvesioConfigure',
                 'visible' => true,
                 'name' => $tabNames,
                 'icon' => 'science',
@@ -85,7 +83,7 @@ class Ovesio extends Module
     public function getContent()
     {
         Tools::redirectAdmin(
-            $this->context->link->getAdminLink(ConfigureController::TAB_CLASS_NAME)
+            $this->context->link->getAdminLink('AdminOvesioConfigure')
         );
     }
 
@@ -296,7 +294,7 @@ class Ovesio extends Module
             $ovesio_generate_seo_status     = $ovesio_status && $ovesio_generate_seo_status && in_array($resource, ['products', 'categories']);
             $ovesio_translate_status        = $ovesio_status && $ovesio_translate_status;
 
-            $ovesio_manual_url = $this->context->link->getAdminLink(ManualController::TAB_CLASS_NAME) . '&type=' . rtrim($resource, 's');
+            $ovesio_manual_url = $this->context->link->getAdminLink('AdminOvesioManual') . '&type=' . rtrim($resource, 's');
             $ovesio_resource = $resource;
             $ovesio_route    = $controller_name;
         } else {

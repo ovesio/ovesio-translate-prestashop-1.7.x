@@ -194,7 +194,7 @@ class ActivityListController extends FrameworkBundleAdminController
 
         $context = Context::getContext();
         $hash = Configuration::get('OVESIO_HASH');
-        $data['url_settings']      = $this->generateUrl('admin_ovesio_configure');
+        $data['url_settings']      = Context::getContext()->link->getAdminLink('AdminOvesioConfigure');
         $data['url_update_status'] = $context->link->getModuleLink('ovesio', 'callback', ['hash' => $hash, 'action' => 'updateActivityStatus'], true);
 
         // Add URLs for AJAX modal calls

@@ -1,13 +1,16 @@
 services:
   PrestaShop\Module\Ovesio\Controller\Admin\ConfigureController:
+    class: PrestaShop\Module\Ovesio\Controller\Admin\ConfigureController
     autowire: true
     autoconfigure: true
 
   PrestaShop\Module\Ovesio\Controller\Admin\ManualController:
+    class: PrestaShop\Module\Ovesio\Controller\Admin\ManualController
     autowire: true
     autoconfigure: true
 
   PrestaShop\Module\Ovesio\Controller\Admin\ActivityListController:
+    class: PrestaShop\Module\Ovesio\Controller\Admin\ActivityListController
     autowire: true
     autoconfigure: true
 
